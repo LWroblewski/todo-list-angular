@@ -1,0 +1,14 @@
+<mat-selection-list #todoLst *ngIf="todos$ | async as todos">
+  <mat-list-option *ngFor="let todo of todos">
+    <div class="todo-item">
+      <span class="todo-title">
+          {{todo.title}}
+      </span>
+
+      <button mat-icon-button>
+        <mat-icon>visibility</mat-icon>
+      </button>
+    </div>
+  </mat-list-option>
+</mat-selection-list>
+
