@@ -1,4 +1,4 @@
-import { Todo } from '../model/todo.';
+import { Todo } from '../model/todo';
 import { TodoActions } from './todo.action';
 
 export interface TodoState {
@@ -26,6 +26,11 @@ export function todoReducer(state: TodoState = initialState, action: TodoActions
             { ...todo, isDone: action.payload.isDone } :
             todo
           )
+      };
+    case TodoActions.Types.GET_DETAIL_SUCCESS:
+      return {
+        ...state,
+        selectedTodo: action.todo
       };
     default:
       return state;

@@ -8,9 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { rootEffects, rootReducer } from './app.store';
 import { SharedModule } from './core/shared.module';
-import { TodoListModule } from './todo/list/todo-list.module';
-import { TODO_URL, TodoService } from './todo/services/todo.service';
-
+import { TodoModule } from './todo/todo.module';
 
 @NgModule({
   declarations: [
@@ -19,21 +17,14 @@ import { TODO_URL, TodoService } from './todo/services/todo.service';
   imports: [
     SharedModule,
     AppRoutingModule,
-    StoreModule.forRoot(rootReducer),
-    EffectsModule.forRoot(rootEffects),
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       name: '[TODO-LIST]',
       maxAge: 15,
       logOnly: environment.production
     }),
-    TodoListModule
-  ],
-  providers: [
-    {
-      provide: TODO_URL,
-      useValue: environment.todoUrl
-    },
-    TodoService
+    TodoModule
   ],
   bootstrap: [AppComponent]
 })

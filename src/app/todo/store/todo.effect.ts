@@ -17,6 +17,15 @@ export class TodoEffects {
       catchError((error) => of(new TodoActions.FindAllError(error)))
   );
 
+  @Effect()
+  getDetail$: Observable<TodoActions.Actions> = this.actions$
+    .pipe(
+      ofType(TodoActions.Types.GET_DETAIL),
+      switchMap(action  =>  this.todoService.getTodoDetail((action as TodoActions.GetDetail).todoId)),
+      map(todo => new TodoActions.GetDetailSuccess(todo)),
+      catchError((error) => of(new TodoActions.GetDetailError(error)))
+  );
+
   constructor(
     private todoService: TodoService,
     private actions$: Actions,
