@@ -10,5 +10,9 @@
     .todo-title {
       width: 100%;
     }
+
+    .todo-done-title {
+      text-decoration: line-through;
+    }
   }
 }

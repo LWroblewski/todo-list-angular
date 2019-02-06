@@ -1,7 +1,7 @@
-<mat-selection-list #todoLst *ngIf="todos$ | async as todos">
-  <mat-list-option *ngFor="let todo of todos">
+<mat-selection-list #todoLst *ngIf="todos$ | async as todos" (selectionChange)="onTodoDoneChanged($event)">
+  <mat-list-option *ngFor="let todo of todos" [selected]="todo.isDone" [value]="todo.id">
     <div class="todo-item">
-      <span class="todo-title">
+      <span [ngClass]="{ 'todo-title': true, 'todo-done-title': todo.isDone }">
           {{todo.title}}
       </span>
 
