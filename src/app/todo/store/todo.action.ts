@@ -1,11 +1,13 @@
-import { Todo } from './../model/todo.';
+import { Todo } from '../model/todo';
 
 export namespace TodoActions {
   export enum Types {
     FIND_ALL = '[TODO] FIND_ALL',
     FIND_ALL_SUCCESS = '[TODO] FIND_ALL_SUCCESS',
     FIND_ALL_ERROR = '[TODO] FIND_ALL_ERROR',
-    SHOW_DETAIL = '[TODO] SHOW_DETAIL',
+    GET_DETAIL = '[TODO] GET_DETAIL',
+    GET_DETAIL_SUCCESS = '[TODO] GET_DETAIL_SUCCESS',
+    GET_DETAIL_ERROR = '[TODO] GET_DETAIL_ERROR',
     UPDATE = '[TODO] UPDATE',
     SET_STATE = '[TODO] SET_STATE'
   }
@@ -24,8 +26,19 @@ export namespace TodoActions {
     constructor(public error: Error) {}
   }
 
-  export class ShowDetail {
-    readonly  type = Types.SHOW_DETAIL;
+  export class GetDetail {
+    readonly  type = Types.GET_DETAIL;
+    constructor(public todoId: number) {}
+  }
+
+  export class GetDetailSuccess {
+    readonly  type = Types.GET_DETAIL_SUCCESS;
+    constructor(public todo: Todo) {}
+  }
+
+  export class GetDetailError {
+    readonly  type = Types.GET_DETAIL_ERROR;
+    constructor(public error: Error) {}
   }
 
   export class Update {
@@ -38,5 +51,6 @@ export namespace TodoActions {
     constructor(public payload: { todoId: number, isDone: boolean }) {}
   }
 
-  export type Actions = FindAll | FindAllSuccess | FindAllError | ShowDetail | Update | SetState;
+  export type Actions = FindAll | FindAllSuccess | FindAllError | GetDetail |
+    GetDetailSuccess | GetDetailError | Update | SetState;
 }

@@ -5,7 +5,7 @@
           {{todo.title}}
       </span>
 
-      <button mat-icon-button>
+      <button mat-icon-button (click)="onDisplayTodo(todo.id)">
         <mat-icon>visibility</mat-icon>
       </button>
     </div>

@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import { TodoListComponent } from './todo-list.component';
 import { MatListModule, MatIconModule } from '@angular/material';
-import { SharedModule } from 'src/app/core/shared.module';
+import { SharedModule } from '../../core/shared.module';
 import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
