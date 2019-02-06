@@ -1,13 +1,12 @@
 import {NgModule} from '@angular/core';
-import {TodoListComponent} from './list/todo-list.component';
 import {RouterModule, Routes} from '@angular/router';
+import {TodoListComponent} from './todo/list/todo-list.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: TodoListComponent
-  }
+  { path: 'todos', component: TodoListComponent },
+  { path: '', redirectTo: '/todos', pathMatch: 'full' }
 ];
+
 @NgModule({
   imports: [
     RouterModule.forRoot(routes)
@@ -16,6 +15,4 @@ const routes: Routes = [
     RouterModule
   ]
 })
-export class TodoRoutingModule {
-
-}
+export class AppRoutingModule { }
