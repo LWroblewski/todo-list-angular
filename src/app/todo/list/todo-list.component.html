@@ -1,0 +1,7 @@
+<mat-selection-list #todoLst>
+  <mat-list-option *ngFor="let todo of (todos$ | async)">
+    {{todo.title}}
+  </mat-list-option>
+</mat-selection-list>
+
+{{ todoLst | json }}
