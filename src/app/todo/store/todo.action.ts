@@ -7,7 +7,7 @@ export namespace TodoActions {
     FIND_ALL_ERROR = '[TODO] FIND_ALL_ERROR',
     SHOW_DETAIL = '[TODO] SHOW_DETAIL',
     UPDATE = '[TODO] UPDATE',
-    SET_DONE = '[TODO] SET_DONE'
+    SET_STATE = '[TODO] SET_STATE'
   }
 
   export class FindAll {
@@ -33,5 +33,10 @@ export namespace TodoActions {
     constructor(public todo: Todo) {}
   }
 
-  export type Actions = FindAll | FindAllSuccess | FindAllError | ShowDetail | Update;
+  export class SetState {
+    readonly  type = Types.SET_STATE;
+    constructor(public payload: { todoId: number, isDone: boolean }) {}
+  }
+
+  export type Actions = FindAll | FindAllSuccess | FindAllError | ShowDetail | Update | SetState;
 }

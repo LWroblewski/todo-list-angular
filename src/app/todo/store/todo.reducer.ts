@@ -18,6 +18,15 @@ export function todoReducer(state: TodoState = initialState, action: TodoActions
         ...state,
         todos: action.todos
       };
+    case TodoActions.Types.SET_STATE:
+      return {
+        ...state,
+        todos: state.todos.map(todo =>
+          todo.id === action.payload.todoId ?
+            { ...todo, isDone: action.payload.isDone } :
+            todo
+          )
+      };
     default:
       return state;
   }

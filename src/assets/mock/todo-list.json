@@ -3,5 +3,15 @@
     "id": 1,
     "title": "Finir le TP Angular",
     "isDone": false
+  },
+  {
+    "id": 2,
+    "title": "Envoyer le TP",
+    "isDone": false
+  },
+  {
+    "id": 3,
+    "title": "Prendre un café",
+    "isDone": true
   }
 ]
